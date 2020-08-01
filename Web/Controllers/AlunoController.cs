@@ -15,9 +15,9 @@ namespace Web.Controllers
 
         private AlunoServices Services { get; set; }
 
-        public AlunoController() 
+        public AlunoController(AlunoServices services) 
         {
-            this.Services = new AlunoServices();
+            this.Services = services;
         }
 
 

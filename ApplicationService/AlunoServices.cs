@@ -10,12 +10,12 @@ namespace ApplicationService
     {
         private AlunoRepository Repository { get; set; }
 
-        public AlunoServices()
+        public AlunoServices(AlunoRepository repository)
         {
-            this.Repository = new AlunoRepository();
+            this.Repository = repository;
         }
 
-        public List<Aluno> GetAll()
+        public IEnumerable<Aluno> GetAll()
         {
             return Repository.GetAll();
         }
@@ -45,7 +45,7 @@ namespace ApplicationService
                 throw new Exception("Para cadastrar um novo aluno ele deve ter no mínimo 18 anos.");
             }
             aluno.Status = Status.EM_CONFIRMACAO_EMAIL;
-            aluno.Id = Guid.NewGuid();
+            //aluno.Id = Guid.NewGuid();
 
             Repository.Save(aluno);
         }

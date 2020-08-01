@@ -16,7 +16,12 @@ namespace Rest.Controllers
     public class AlunoController : ControllerBase
     {
 
-        private AlunoServices Services { get; set; } = new AlunoServices();
+        private AlunoServices Services { get; set; }
+
+        public AlunoController(AlunoServices services) 
+        {
+            this.Services = services;
+        }
 
         // GET: api/<AlunoController>
         [HttpGet]
