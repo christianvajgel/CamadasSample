@@ -92,5 +92,20 @@ namespace Repository
             //    Alunos.Remove(aluno);
             //}
         }
+
+        public void Update(Guid id, Aluno aluno) 
+        {
+            var alunoOld = Context.Alunos.FirstOrDefault(x => x.Id == id);
+
+            alunoOld.DataNascimento = aluno.DataNascimento;
+            alunoOld.Email = aluno.Email;
+            alunoOld.Matricula = aluno.Matricula;
+            alunoOld.Status = aluno.Status;
+            alunoOld.Nome = aluno.Nome;
+            alunoOld.CPF = aluno.CPF;
+
+            Context.Alunos.Update(alunoOld);
+            this.Context.SaveChanges();
+        }
     }
 }

@@ -13,7 +13,7 @@ namespace Domain
         public DateTime DataNascimento { get; set; }
         public string Email { get; set; }
         public Status Status { get; set; }
-
+        public string CPF { get; set; }
     }
 
     public enum Status 
